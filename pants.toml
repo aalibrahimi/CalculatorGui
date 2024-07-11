@@ -14,7 +14,10 @@ backend_packages.add = [
 enabled = false
 
 [source]
-root_patterns = ["/"]
+root_patterns = [
+  "/src", 
+  "/mylibrary",
+]
 
 [python]
 interpreter_constraints = ["==3.10.12"]
