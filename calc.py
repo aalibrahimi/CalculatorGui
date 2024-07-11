@@ -5,6 +5,7 @@
 # Put together
 # import tkinter as tk
 from tkinter import *
+import math
 root = Tk()
 root.title("Kingdom Calculator")
 
@@ -24,20 +25,68 @@ def clear():
 def add():
     first = king.get()
     # global variable
-    global fnum 
     # assign a variable fnum to the first input number called first
-    fnum = int(first)
     #delete number since it will be saved in the placeholder fnum
+    global fnum 
+    global math
+    math = "addition"
+    fnum = int(first)
     king.delete(0,END)
     
-    # this is how we get the second number
+
+def multi():
+    first = king.get()
+    # global variable
+    # assign a variable fnum to the first input number called first
+    #delete number since it will be saved in the placeholder fnum
+    global fnum 
+    global math
+    math = "multiplication"
+    fnum = int(first)
+    king.delete(0,END)
+
+def subtract():
+    first = king.get()
+    # global variable
+    # assign a variable fnum to the first input number called first
+    #delete number since it will be saved in the placeholder fnum
+    global fnum 
+    global math
+    math = "subtraction"
+    fnum = int(first)
+    king.delete(0,END)
+    #boba = 4
+    #if boba == 5
+        #print("5 years old")
+    #if boba == 4
+        #print("4 years old")
+def Division():
+    first = king.get()
+    # global variable
+    # assign a variable fnum to the first input number called first
+    #delete number since it will be saved in the placeholder fnum
+    global fnum 
+    global math
+    math = "Division"
+    fnum = int(first)
+    king.delete(0,END)
+
 def equal():
     #same process we need a memory for the second variable
-    second = king.get()
     #delete after puttin in a number
+    second = king.get()
     king.delete(0,END)
-    king.insert(0,fnum + int(second))
-
+    #addition to + 
+    if math == "addition":
+        king.insert(0,fnum + int(second))
+    elif math == "division":
+        king.insert(0,fnum / int(second))
+    elif math == "subtration":
+        king.insert(0,fnum - int(second))    
+    elif math == "multiplication":
+        king.insert(0,fnum * int(second))
+    else:
+        print("error")
     
        
    
@@ -56,8 +105,9 @@ button0 = Button(root, text="0", padx=40, pady=20, command=lambda: buttonclick(0
 buttonEq = Button(root,text="=", padx=40, pady=20, command=lambda: equal())
 buttonClear = Button(root,text="Clear", padx=29.5, pady=20, command=lambda: clear())
 buttonplus = Button(root,text="+", padx=40, pady=20, command=lambda:add())
-buttonminus = Button(root,text="-", padx=40, pady=20, command=lambda: buttonclick("-"))
-buttonmulti = Button(root,text="*", padx=40, pady=20, command=lambda: buttonclick("*"))
+buttonminus = Button(root,text="-", padx=40, pady=20, command=lambda: subtract())
+buttonmulti = Button(root,text="*", padx=40, pady=20, command=lambda: multi())
+buttonDiv = Button(root, text="/", padx=40, pady=20, command=lambda: Division())
 #put the buttons on the screen
 
 space = Label(root, text="", width=1)
@@ -80,6 +130,7 @@ buttonClear.grid(row=4,column=4)
 buttonplus.grid(row=3,column=4)
 buttonminus.grid(row=2,column=4)
 buttonmulti.grid(row=1,column=4)
+buttonDiv.grid(row=4, column =0)
 
 space.grid(row=1, column=3,rowspan=4)
 
