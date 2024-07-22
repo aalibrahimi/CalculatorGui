@@ -4,8 +4,11 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 
 # Initialize the main window
-root = Tk()
+root = tk.Tk()
 root.title("Kingdom Calculator")
+# root2 = tk.Tk()
+# root2.title("Page 2")
+
 
 # Load the logo image using PIL and convert to a format Tkinter can use
 try:
@@ -73,7 +76,7 @@ def subtract():
     king.delete(0,END)
 
 def Division():
-    global expression
+    global expression    
     expression += "/"
     prince.insert(END, "/")
     king.insert(END, "/")
@@ -91,7 +94,35 @@ def equal():
         king.insert(0, "Error")
         expression = ""
 
-# Define buttons
+# def graph():
+#     global root2, root
+#     root.lift()
+#     root2.mainloop()
+#     root2 = tk.Tk()
+#     root2.title("Page 2")
+
+# https://stackoverflow.com/questions/48796807/how-to-create-and-display-multiple-widgets-using-a-loop-tkinter --> Idk classes
+
+
+# # Define buttons
+# button1 = Button(root2, text="1", padx=40, pady=20, command=lambda: buttonclick(1))
+# button2 = Button(root2, text="2", padx=40, pady=20, command=lambda: buttonclick(2))
+# button3 = Button(root2, text="3", padx=40, pady=20, command=lambda: buttonclick(3))
+# button4 = Button(root2, text="4", padx=40, pady=20, command=lambda: buttonclick(4))
+# button5 = Button(root2, text="5", padx=40, pady=20, command=lambda: buttonclick(5))
+# button6 = Button(root2, text="6", padx=40, pady=20, command=lambda: buttonclick(6))
+# button7 = Button(root2, text="7", padx=40, pady=20, command=lambda: buttonclick(7))
+# button8 = Button(root2, text="8", padx=40, pady=20, command=lambda: buttonclick(8))
+# button9 = Button(root2, text="9", padx=40, pady=20, command=lambda: buttonclick(9))
+# button0 = Button(root2, text="0", padx=40, pady=20, command=lambda: buttonclick(0))
+# buttonEq = Button(root2, text="=", padx=40, pady=20, command=equal)
+# buttonClear = Button(root2, text="Clear", padx=29.5, pady=20, command=clear)
+# buttonplus = Button(root2, text="+", padx=40, pady=20, command=add)
+# buttonminus = Button(root2, text="-", padx=40, pady=20, command=subtract)
+# buttonmulti = Button(root2, text="*", padx=40, pady=20, command=multi)
+# buttonDiv = Button(root2, text="/", padx=40, pady=20, command=Division)
+# buttonGraph = Button(root2, text="Graph", padx=40, pady=20, command=graph)
+
 button1 = Button(root, text="1", padx=40, pady=20, command=lambda: buttonclick(1))
 button2 = Button(root, text="2", padx=40, pady=20, command=lambda: buttonclick(2))
 button3 = Button(root, text="3", padx=40, pady=20, command=lambda: buttonclick(3))
@@ -108,6 +139,8 @@ buttonplus = Button(root, text="+", padx=40, pady=20, command=add)
 buttonminus = Button(root, text="-", padx=40, pady=20, command=subtract)
 buttonmulti = Button(root, text="*", padx=40, pady=20, command=multi)
 buttonDiv = Button(root, text="/", padx=40, pady=20, command=Division)
+# buttonGraph = Button(root, text="Graph", padx=40, pady=20, command=graph)
+
 
 
 # Remove the spacer Label
@@ -136,4 +169,8 @@ buttonEq.grid(row=5, column=2)
 buttonClear.grid(row=5, column=3)  # Add left padding
 space.grid(row=1, column=3,rowspan=4)
 
+# buttonGraph.grid(row=6, column=1, columnspan=2)
+
 root.mainloop()
+
+# Create 2nd file for 2nd page and call file function after destroying main file widget? And just .mainloop() that file/function?
